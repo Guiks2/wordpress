@@ -15,8 +15,15 @@ function theme_sidebars() {
 		'description' => 'Description',
 		'before_widget' => '<aside>',
 		'after_widget' =>'</aside>',
-		'before_title' => '',
-		'after_tile' => ''
+		'before_title' => '<h1>',
+		'after_tile' => '</h1>'
 	));
+}
+
+// Mot de passe perdu
+add_filter( 'login_form_bottom', 'lien_mot_de_passe_perdu' );
+function lien_mot_de_passe_perdu( $formbottom ) {
+	$formbottom .= '<a href="' . wp_lostpassword_url() . '">Mot de passe perdu ?</a>';
+	return $formbottom;
 }
 ?>
