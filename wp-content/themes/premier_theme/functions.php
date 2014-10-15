@@ -6,8 +6,8 @@ function theme_menu() {
 	register_nav_menu('main_menu', 'Menu principal');
 }
 
-// logo d'en-tête personnalisable
-add_theme_support('custom_header') ;
+// Sidebars
+add_action('widgets_init', 'theme_sidebars') ;
 function theme_sidebars() {
 	register_sidebar(array(
 		'id' => 'zone_widget_gauche',
