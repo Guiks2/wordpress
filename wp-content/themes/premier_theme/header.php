@@ -51,7 +51,7 @@
 		</h1>
 		<?php bloginfo('description'); ?>
 	</div>
-	<?php wp_nav_menu(array(‘theme_location’ => ‘main_menu’)) ?>
+	
 	
 	<div id="page">
 
