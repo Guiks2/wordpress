@@ -26,4 +26,11 @@ function lien_mot_de_passe_perdu( $formbottom ) {
 	$formbottom .= '<a href="' . wp_lostpassword_url() . '">Mot de passe perdu ?</a>';
 	return $formbottom;
 }
+
+//Create custom widgets
+add_action('widgets_init', 'theme_register_widgets');
+
+function theme_register_widgets() {
+	register_widget('CustomWidget');
+}
 ?>
