@@ -1,7 +1,7 @@
 /*
-Theme Name: premier thème
-Author : Guiks
-Description : Mon premier thème
+Theme Name: ESGI3DJVTheme
+Author : The Crew (Guillaume BLONDEAU, Thibault CROSNIER, Guillaume DELAPRÉ, Eric PEREIRINHA)
+Description : Thème pour le projet Wordpress
 Version: 0.1
 */
 
@@ -81,4 +81,15 @@ a img.aligncenter {
     line-height: 17px;
     margin: 0;
     padding: 0 4px 5px;
+}
+
+/*END OF Wordpress Core */
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+.menu-item a{
+	color: transparent;
 }
