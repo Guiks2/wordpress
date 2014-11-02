@@ -19,41 +19,45 @@
  
 </head>
 <body>
-	
-	<?php
-	// Formulaire de connexion
-	if ( ! is_user_logged_in() ) {
-		wp_login_form( array(
-	        'redirect'       => site_url( '/' ), // par défaut renvoie vers la page courante
-	        'label_username' => 'Login',
-	        'label_password' => 'Mot de passe',
-	        'label_remember' => 'Se souvenir de moi',
-	        'label_log_in'   => 'Se connecter',
-	        'form_id'        => 'login-form',
-	        'id_username'    => 'user-login',
-	        'id_password'    => 'user-pass',
-	        'id_remember'    => 'rememberme',
-	        'id_submit'      => 'wp-submit',
+
+	<div id="header">
+            <div id="title">
+                <h1>
+                    <a href="<?php bloginfo('url'); ?>">
+                        <?php bloginfo('name'); ?>
+                    </a>
+                </h1>
+                <?php bloginfo('description'); ?>
+            </div>
+            
+            <div id="formulaire">
+				<?php
+				// Formulaire de connexion
+				if ( ! is_user_logged_in() ) {
+					wp_login_form( array(
+						'redirect'       => site_url( '/' ), // par défaut renvoie vers la page courante
+						'label_username' => 'Login',
+						'label_password' => 'Mot de passe',
+						'label_remember' => 'Se souvenir de moi',
+						'label_log_in'   => 'Se connecter',
+						'form_id'        => 'login-form',
+						'id_username'    => 'user-login',
+						'id_password'    => 'user-pass',
+						'id_remember'    => 'rememberme',
+						'id_submit'      => 'wp-submit',
 	        'remember'       => true, //afficher l'option se souvenir de moi
-	        'value_remember' => false //se souvenir par défaut ?
-		) );
+						'value_remember' => false //se souvenir par défaut ?
+					) );
 		$register_addr = '?page_id=14';
 		echo '<input type="submit" class="button-primary" onClick="window.location=\''.$register_addr.'\'" value="S\'inscrire">';
 
 		echo get_template_directory_uri();
-	} else {
-		echo '<a href="' . admin_url( 'user-edit.php?user_id='. get_current_user_id() ) .'">Accès au profil</a>';
-		echo '<a href="' . wp_logout_url( site_url( '/' ) ) .'">Se déconnecter</a>';
-	}
-	?>
-
-	<div id="header">
-		<h1>
-			<a href="<?php bloginfo('url'); ?>">
-				<?php bloginfo('name'); ?>
-			</a>
-		</h1>
-		<?php bloginfo('description'); ?>
+				} else {
+					echo '<a href="' . admin_url( 'user-edit.php?user_id='. get_current_user_id() ) .'">Accès au profil</a>';
+					echo '<a href="' . wp_logout_url( site_url( '/' ) ) .'">Se déconnecter</a>';
+				}
+				?>
+            </div>
 	</div>
 	
 	
