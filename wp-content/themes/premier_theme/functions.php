@@ -29,17 +29,16 @@ function lien_mot_de_passe_perdu( $formbottom ) {
 
 // Formulaire d'inscription
 function register_user_form() {
-	echo '<form action="' . admin_url( 'admin-post.php?action=nouvel_utilisateur' ) . '" method="post" id="register-user">';
-
-	// Les champs requis
-	echo '<p><label for="nom-user">Nom</label><input type="text" name="username" id="nom-user" required></p>';
-	echo '<p><label for="email-user">Email</label><input type="email" name="email" id="email-user" required></p>';
-	echo '<p><label for="pass-user">Mot de passe</label><input type="password" name="pass" id="pass-user" required><br>';
-	echo '<input type="checkbox" id="show-password"><label for="show-password">Voir le mot de passe</label></p>';
-
-	//Validation
-	echo '<input type="submit" value="Créer mon compte">';
-	echo '</form>';
+	echo '<form action="' . admin_url( 'admin-post.php?action=nouvel_utilisateur' ) . '" method="post" id="register-user">'.
+		// Les champs requis
+		'<p><label for="nom-user">Nom</label><input type="text" name="username" id="nom-user" required></p>'.
+		'<p><label for="email-user">Email</label><input type="email" name="email" id="email-user" required></p>'.
+		'<p><label for="pass-user">Mot de passe</label><input type="password" name="pass" id="pass-user" required><br>'.
+		'<input type="checkbox" id="show-password"><label for="show-password">Voir le mot de passe</label></p>'.
+	
+		//Validation
+		'<input type="submit" value="Créer mon compte">'.
+	'</form>';
 
 
 }
@@ -140,48 +139,47 @@ function redirect_non_authorized_user() {
 function edit_user_form() {
 	if ( is_user_logged_in() ) {
 		$userdata = get_userdata( get_current_user_id() );
-		echo '<form action="' . admin_url( 'admin-post.php?action=update_utilisateur' ) . '" method="post" id="update-utilisateur">';
+		echo '<form action="' . admin_url( 'admin-post.php?action=update_utilisateur' ) . '" method="post" id="update-utilisateur">'.
 
 		// Pseudo (ne peut pas être changé)
-		echo '<p><label for="pseudo-user">Username</label>';
-		echo '<input type="text" name="username" id="pseudo-user" value="' . $userdata->user_login . '" disabled></p>';
+		'<p><label for="pseudo-user">Username</label>'.
+		'<input type="text" name="username" id="pseudo-user" value="' . $userdata->user_login . '" disabled></p>'.
 
 		// Nom
-		echo '<p><label for="nom-user">Nom</label>';
-		echo '<input type="text" name="nom" id="nom-user" value="' . $userdata->last_name . '"></p>';
+		'<p><label for="nom-user">Nom</label>'.
+		'<input type="text" name="nom" id="nom-user" value="' . $userdata->last_name . '"></p>'.
 
 		// Prénom
-		echo '<p><label for="prenom-user">Prénom</label>';
-		echo '<input type="text" name="prenom" id="prenom-user" value="' . $userdata->first_name . '"></p>';
+		'<p><label for="prenom-user">Prénom</label>'.
+		'<input type="text" name="prenom" id="prenom-user" value="' . $userdata->first_name . '"></p>'.
 
 		// Nom d'affichage
-		echo '<p><label for="display_name-user">Nom d\'affichage</label>';
-		echo '<input type="text" name="display_name" id="display_name-user" value="' . $userdata->display_name . '" required></p>';
+		'<p><label for="display_name-user">Nom d\'affichage</label>'.
+		'<input type="text" name="display_name" id="display_name-user" value="' . $userdata->display_name . '" required></p>'.
 
 		// Biographie
-		echo '<p><label for="nom-user">Description</label>';
-		echo '<textarea name="bio" id="bio-user">' . $userdata->user_description . '</textarea></p>';
+		'<p><label for="nom-user">Description</label>'.
+		'<textarea name="bio" id="bio-user">' . $userdata->user_description . '</textarea></p>'.
 		
 		// Site
-		echo '<p><label for="site-user">Site web</label>';
-		echo '<input type="text" name="site" id="site-user" value="' . $userdata->user_url . '"></p>';
+		'<p><label for="site-user">Site web</label>'.
+		'<input type="text" name="site" id="site-user" value="' . $userdata->user_url . '"></p>'.
 
 		// Email
-		echo '<p><label for="email-user">Email</label>';
-		echo '<input type="email" name="email" id="email-user" value="' . $userdata->user_email . '" required></p>';
+		'<p><label for="email-user">Email</label>'.
+		'<input type="email" name="email" id="email-user" value="' . $userdata->user_email . '" required></p>'.
 
 		// Mot de passe (Mis à jour uniquement si présent)
-		echo '<p><label for="pass-user">Mot de passe</label>';
-		echo '<input type="password" name="pass" id="pass-user"><br>';
-		echo '<input type="checkbox" id="show-password"><label for="show-password">Voir le mot de passe</label></p>';
+		'<p><label for="pass-user">Mot de passe</label>'.
+		'<input type="password" name="pass" id="pass-user"><br>'.
+		'<input type="checkbox" id="show-password"><label for="show-password">Voir le mot de passe</label></p>';
 
 		// Nonce
 		wp_nonce_field( 'update-' . get_current_user_id(), 'user-front' );
 
 		//Validation
-		echo '<input type="submit" value="Mettre à jour">';
-
-		echo '</form>';
+		echo '<input type="submit" value="Mettre à jour">'.
+		'</form>';
 
 		// Enqueue de scripts qui vont nous permettre de vérifier les champs
 		wp_enqueue_script( 'inscription-front' );
@@ -193,7 +191,7 @@ add_action( 'admin_post_update_utilisateur', 'update_utilisateur' );
 function update_utilisateur() {
 	// Vérifier le nonce
 	if( isset( $_POST['user-front'] ) && wp_verify_nonce( $_POST['user-front'], 'update-' . get_current_user_id() ) ) {
-echo 'test';
+
 		// Vérifier les champs requis
 		if ( ! isset( $_POST['email'] ) || ! is_email( $_POST['email'] ) ) {
 			wp_redirect( site_url( '/profile/?message=need-email' ) );
