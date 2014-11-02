@@ -90,7 +90,7 @@ a {
 	text-decoration: none;
 html {
 	font-family: "Segoe UI";
-	background: url("footer_lodyas.png");
+	background: url("diamond.png");
 	color: white;
 }
 
@@ -100,7 +100,7 @@ a {
 }
 
 #header, #footer {
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.2);
 	padding: 5px 20px 20px 20px;
 }
 
@@ -141,7 +141,7 @@ a {
 .sidebar {
 	width: 30%;
 	float: left;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.1);
 }
 
 #content {
