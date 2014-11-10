@@ -3,8 +3,8 @@
 Template Name: Inscriptions
 */
 				get_header();
-				register_user_form();
 				get_sidebar(); 
+				echo do_shortcode( '[wp-members page="register"]');
 				get_footer();
 			?>
 		</div>
