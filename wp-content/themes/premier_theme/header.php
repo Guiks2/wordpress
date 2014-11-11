@@ -20,7 +20,6 @@
  
 </head>
 <body>
-
 	<div id="header">
             <div id="title">
                 <h1>
@@ -44,6 +43,34 @@
 				}
 			?>
 	</div>
+	
+	
+<?php
+/*
+ * Fonction d'upload
+ * Ajouter une vérif sur la taille du fichier et sur l'extension
+ * Ajouter une vérif sur l'uploader (ou pas, le blocage des droits de la page devrait suffire)
+ * Lors de l'ajout dans la BDD, mettre le logiciel en pending
+ * Déplacer cette fonction une fois le site crée
+ */
+if (isset($_FILES['fichier']) AND $_FILES['fichier']['error'] == 0)
+{
+	$nom = md5(uniqid(rand(), true));;
+	$resultat = move_uploaded_file($_FILES['fichier']['tmp_name'],"wp-content/themes/premier_theme/upload/".$nom);
+	if ($resultat) echo "Transfert réussi";
+}
+?>
+<form method="post" enctype="multipart/form-data" action="<?php bloginfo('home'); ?>/">
+     <label for="fichier">Fichier :</label><br />
+     <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+     <input type="file" name="fichier" id="fichier" /><br />
+     <label for="titre">Titre du fichier :</label><br />
+     <input type="text" name="titre" value="Titre du fichier" id="titre" /><br />
+     <label for="description">Description du fichier :</label><br />
+     <textarea name="description" id="description"></textarea><br />
+     <input type="submit" name="submit" value="Envoyer" />
+</form>
+
 	
 	
 	<div id="page">
