@@ -91,6 +91,7 @@ html {
 	color: black;
 }
 
+
 a {
 	text-decoration: none;
 	color: black;
@@ -106,6 +107,8 @@ a {
 	width: 80%;
 	max-height: 150px;
 	margin: 0 auto;
+	box-shadow: -2px 2px 5px black;
+	border-bottom: solid 2px black;
 }
 
 #title {
@@ -142,7 +145,7 @@ a {
 #page {
 	display: block;
 	margin: 0 auto;
-	width: 75%;
+	width: 80%;
 }
  
 .sidebar {
@@ -154,7 +157,7 @@ a {
 
 #content {
 	padding-left: 40px;
-	width: 60%;
+	width: 68%;
 	float: left;
 	background: url('subtle_dots.png');
 	color: black;
@@ -199,5 +202,20 @@ input {
 
 .sidebar {
 	border-right: dashed 2px rgba(0,0,0,1);
-	box-shadow: -2px 10px 10px black;
+	box-shadow: -2px 6px 10px black;
+}
+
+.post {
+	width: 90%;
+	padding: 10px;
+}
+
+h2 :hover {
+	transition: color 0.2s linear;
+	color: rgba(255,184,41,1);
+}
+
+#wp-calendar {
+	width: 100%;
+	text-align: center;
 }
