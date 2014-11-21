@@ -1,8 +1,13 @@
-		<?php get_header(); ?>
-		<div id="all">
-			<?php get_sidebar(); ?>
-			<div id="content">
-				<?php 
+			<?php get_header(); ?>
+            <div id="all">
+                <?php get_sidebar(); ?>
+          
+                <div id="content">
+                    <?php 
+					if(isset($_GET['s']))
+						echo '<h1>Résultats de recherche : '. $_GET['s'] .'</h1>';
+					else
+						echo '<h1>Quoi de neuf ?</h1>';
 				if(have_posts()) :
 					while(have_posts()) : 
 					the_post();
