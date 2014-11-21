@@ -180,41 +180,20 @@ a {
 	border-right: solid 2px #057;
 }
 
-#login-form .login-username,
-#login-form .login-password,
-#login-form .login-submit {
-	display: inline-block;
-}
-
-#login-form,
-#login-form label {
-	display: block;
-	text-align: right;
-}
-
-#login-form .login-remember {
-	font-size: 9pt;
-	margin-top: -10px;
-}
-
-#login-form a {
-	font-size: 9pt;
-}
-
-#login-form .login-submit {
-	margin-top: -15px;
-}
-
-#login-form .login-submit #wp-submit {
-	font-size: 12pt;
-	width: 190px;
-	height: 30px;
-}
-
 input {
 	border-radius: 5px;
 	height: 20px;
 	padding-left: 10px;
+}
+
+#wpmem_login {
+	display: table-cell;
+	width: 35%;
+	text-align: right;
+}
+
+label {
+	display: inline-block;
 }
 
 .post {
