@@ -87,7 +87,7 @@ a img.aligncenter {
 
 html {
 	font-family: "Roboto";
-	background: url("diamond.png");
+	background: url('diamond.png');
 	color: black;
 }
 
@@ -98,8 +98,9 @@ a {
 }
 
 #header, #footer {
-	background-color: rgba(255,255,255,0.9);
+	background-color: #057;
 	padding: 5px 20px 20px 20px;
+	color: white;
 }
 
 #header {
@@ -136,7 +137,7 @@ a {
 }
 
 .menu-item :hover{
-	color: rgba(255,184,41,1);
+	color: #057;
 	padding-left: 15px;
 	transition: padding-left 0.2s linear;
 	padding-left: 15px;
@@ -146,21 +147,27 @@ a {
 	display: block;
 	margin: 0 auto;
 	width: 80%;
+	border-top: solid 4px #057;
+	border-bottom: solid 4px #057;
 }
  
 .sidebar {
 	width: 25%;
 	float: left;
+	margin-left: 3px;
 	background-color: rgba(255,255,255,0.8);
 	padding-left: 25px;
+	border-right: dashed 2px rgba(0,0,0,1);
+	border-left: solid 2px #057;
 }
 
 #content {
 	padding-left: 40px;
-	width: 68%;
+	width: 70%;
 	float: left;
 	background: url('subtle_dots.png');
 	color: black;
+	border-right: solid 2px #057;
 }
 
 #login-form .login-username,
@@ -200,19 +207,18 @@ input {
 	padding-left: 10px;
 }
 
-.sidebar {
-	border-right: dashed 2px rgba(0,0,0,1);
-	box-shadow: -2px 6px 10px black;
-}
-
 .post {
 	width: 90%;
 	padding: 10px;
 }
 
+h1 {
+	color: #057;
+}
+
 h2 :hover {
 	transition: color 0.2s linear;
-	color: rgba(255,184,41,1);
+	color: #057;
 }
 
 #wp-calendar {
