@@ -147,7 +147,6 @@ a {
 	display: block;
 	margin: 0 auto;
 	width: 80%;
-	border-top: solid 4px #057;
 	border-bottom: solid 4px #057;
 }
  
@@ -159,14 +158,16 @@ a {
 	padding-left: 25px;
 	border-right: dashed 2px rgba(0,0,0,1);
 	border-left: solid 2px #057;
+	border-top: solid 4px #057;
 }
 
 #content {
 	padding-left: 40px;
-	width: 70%;
+	width: 65%;
 	float: left;
 	background: url('subtle_dots.png');
 	color: black;
+	border-top: solid 4px #057;
 	border-right: solid 2px #057;
 }
 
