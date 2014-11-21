@@ -143,28 +143,32 @@ a {
 	padding-left: 15px;
 }
 
+#all {
+	display: table;
+	width: 100%;
+}
+
 #page {
 	display: block;
 	margin: 0 auto;
 	width: 80%;
-	border-bottom: solid 4px #057;
+	border-left: solid 2px #057;
 }
  
 .sidebar {
 	width: 25%;
-	float: left;
+	display: table-cell;
 	margin-left: 3px;
 	background-color: rgba(255,255,255,0.8);
 	padding-left: 25px;
 	border-right: dashed 2px rgba(0,0,0,1);
-	border-left: solid 2px #057;
 	border-top: solid 4px #057;
 }
 
 #content {
 	padding-left: 40px;
-	width: 65%;
-	float: left;
+	width: 75%;
+	display: table-cell;
 	background: url('subtle_dots.png');
 	color: black;
 	border-top: solid 4px #057;
