@@ -3,7 +3,6 @@
 <head profile="http://gmpg.org/xfn/11">
  
 	<title><?php bloginfo('name') ?><?php if ( is_404() ) : ?> &raquo; <?php _e('Not Found') ?><?php elseif ( is_home() ) : ?> &raquo; <?php bloginfo('description') ?><?php else : ?><?php wp_title() ?><?php endif ?></title>
- 
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" />
 	<!-- leave this for stats -->
@@ -22,29 +21,31 @@
 </head>
 <body>
 	<div id="header">
-            <div id="title">
-                <h1>
-                    <a href="<?php bloginfo('url'); ?>">
-                        <?php bloginfo('name'); ?>
-                    </a>
-                </h1>
-                <?php bloginfo('description'); ?>
-            </div>
-            <?php 
-	            echo do_shortcode( '[wp-members page="login"]');
-	            if ( is_user_logged_in() ) {
-					$sql = 'SELECT ID '.
-					'FROM wp_posts '.
-					'INNER JOIN wp_postmeta ON wp_postmeta.post_id=wp_posts.ID '.
-					'WHERE wp_postmeta.meta_value="edit_profil.php" '.
-						'AND wp_postmeta.meta_key="_wp_page_template"'; 
-					$id_page = $wpdb->get_var($sql);
-					
-					echo '<a href="?page_id='.$id_page.'">Accès au profil</a>';
-				}
-			?>
+		<div id="title">
+			<h1>
+				<a href="<?php bloginfo('url'); ?>">
+					<?php bloginfo('name'); ?>
+				</a>
+			</h1>
+			<?php bloginfo('description'); ?>
+		</div>
+		<?php 
+		echo do_shortcode( '[wp-members page="login"]');
+		if ( is_user_logged_in() ) {
+			$sql = 'SELECT ID '.
+			'FROM wp_posts '.
+			'INNER JOIN wp_postmeta ON wp_postmeta.post_id=wp_posts.ID '.
+			'WHERE wp_postmeta.meta_value="edit_profil.php" '.
+				'AND wp_postmeta.meta_key="_wp_page_template"'; 
+			$id_page = $wpdb->get_var($sql);
+			
+			echo '<a href="?page_id='.$id_page.'">Accès au profil</a>';
+		}
+		?>
 	</div>
 	<div style="height: 30px;"></div>
+<<<<<<< HEAD
+=======
 
 	
 <?php
@@ -75,5 +76,5 @@ if (isset($_FILES['fichier']) AND $_FILES['fichier']['error'] == 0)
 
 	
 	
+>>>>>>> origin/master
 	<div id="page">
-
