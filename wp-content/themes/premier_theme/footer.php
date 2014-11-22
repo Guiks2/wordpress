@@ -1,4 +1,5 @@
-	<div id="footer">
+	<div style="height: 20px"></div>
+    <div id="footer">
 		<p>
 			Copyright &#169; <?php print(date(Y)); ?>
 			<?php bloginfo('name'); ?>

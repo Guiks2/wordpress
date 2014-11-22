@@ -151,6 +151,8 @@ a {
 #all {
 	display: table;
 	width: 100%;
+	border-top: solid 4px #057;
+	border-bottom: solid 4px #057;
 }
 
 #page {
@@ -158,26 +160,23 @@ a {
 	margin: 0 auto;
 	width: 80%;
 	border-left: solid 2px #057;
+	border-right: solid 2px #057;
 }
  
 .sidebar {
 	width: 25%;
 	display: table-cell;
 	margin-left: 3px;
-	background-color: rgba(255,255,255,0.8);
+	background-color: rgba(0,85,119,0.2);
 	padding-left: 25px;
 	border-right: dashed 2px rgba(0,0,0,1);
-	border-top: solid 4px #057;
 }
 
 #content {
 	padding-left: 40px;
 	width: 75%;
 	display: table-cell;
-	background: url('subtle_dots.png');
-	color: black;
-	border-top: solid 4px #057;
-	border-right: solid 2px #057;
+	background: rgba(0,85,119,0.05);
 }
 
 input {
@@ -186,14 +185,22 @@ input {
 	padding-left: 10px;
 }
 
+#log {
+	width: 200px;
+}
+
 #wpmem_login {
 	display: table-cell;
-	width: 35%;
+	width: 40%;
 	text-align: right;
 }
 
+.div_text {
+	width: 50%;
+}
+
 label {
-	display: inline-block;
+	display: inline-flex;
 }
 
 .post {
@@ -205,10 +212,21 @@ h1 {
 	color: #057;
 }
 
-h2 :hover {
+#content h2  {
 	transition: color 0.2s linear;
-	color: #057;
+	background-color: rgba(0,85,119,0.8);
+	padding: 5px;
 }
+
+#content h2 :hover {
+	color: #0AF;
+}
+
+h2 a {
+	color: white;
+}
+
+
 
 #wp-calendar {
 	width: 100%;
