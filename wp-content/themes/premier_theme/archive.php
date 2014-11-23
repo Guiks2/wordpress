@@ -4,7 +4,10 @@
           
                 <div id="content">
                     <?php 
-						echo '<h1>Archives</h1>';
+						echo '<h1>';
+						$category = get_the_category();
+						echo $category[0]->cat_name;
+						echo '</h1>';
 				if(have_posts()) :
 					while(have_posts()) : 
 					the_post();

@@ -243,6 +243,14 @@ h2 a {
 	text-align: right;
 }
 
+.post_content #wpmem_msg {
+	border: solid 2px #057;
+}
+
+#header #wpmem_msg {
+	display: none;
+}
+
 @media screen and (max-width: 950px) {
 	.sidebar {
 		display: none;
