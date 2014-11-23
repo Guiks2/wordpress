@@ -203,9 +203,9 @@ function wpmem_inc_memberlinks( $page = 'members' )
 		break;
 		
 	case 'register':	
-		$str = '<p>' . sprintf( __( 'You are logged in as %s', 'wp-members' ), $user_login ) . '</p>
+		$str = '<p>' . sprintf( __( 'Vous êtes connecté en tant que %s', 'wp-members' ), $user_login ) . '</p>
 			<ul>
-				<li><a href="' . $logout . '">' . __( 'Click to log out.', 'wp-members' ) . '</a></li>
+				<li><a href="' . $logout . '">' . __( 'Se déconnecter', 'wp-members' ) . '</a></li>
 				<li><a href="' . get_option('home') . '">' . __( 'Begin using the site.', 'wp-members' ) . '</a></li>
 			</ul>';
 		/**
@@ -221,8 +221,8 @@ function wpmem_inc_memberlinks( $page = 'members' )
 	case 'login':
 
 		$str = '<p>
-		  	' . sprintf( __( 'You are logged in as %s', 'wp-members' ), $user_login ) . '<br />
-		  	<a href="' . $logout . '">' . __( 'Click to log out', 'wp-members' ) . '</a>
+		  	' . sprintf( __( 'Vous êtes connecté en tant que %s', 'wp-members' ), $user_login ) . '<br />
+		  	<a href="' . $logout . '">' . __( 'Se déconnecter', 'wp-members' ) . '</a>
 			</p>';
 		/**
 		 * Filter the links displayed on the Log In page (logged in state).
