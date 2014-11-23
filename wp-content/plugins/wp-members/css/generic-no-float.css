@@ -87,6 +87,7 @@ see http://rocketgeek.com/tips-and-tricks/load-a-custom-stylesheet/
 }
 
 #wpmem_reg input[type="text"],
+#wpmem_reg input[type="password"],
 #wpmem_reg textarea,
 #wpmem_login input[type="text"],
 #wpmem_login input[type="password"] {
@@ -160,7 +161,7 @@ see http://rocketgeek.com/tips-and-tricks/load-a-custom-stylesheet/
 #wpmem_reg .textbox, #wpmem_login .textbox,
 #wpmem_reg .username, #wpmem_login .username,
 #wpmem_reg .password, #wpmem_login .password {
-	width:100%;
+	width:300px;
 }
 
 
@@ -194,7 +195,7 @@ see http://rocketgeek.com/tips-and-tricks/load-a-custom-stylesheet/
 	line-height: 0px;
 }
 #wpmem_login .link-text {
-	width: 74%;
+	width: 85%;
 }
 
 #tos {
@@ -210,7 +211,6 @@ see http://rocketgeek.com/tips-and-tricks/load-a-custom-stylesheet/
 	padding: 6px 0;
 	text-align: right;
 }
-
 
 /** for smaller screens */
 

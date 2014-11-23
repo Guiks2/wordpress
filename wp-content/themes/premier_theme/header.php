@@ -6,6 +6,7 @@
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" />
 	<!-- leave this for stats -->
+    <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>" />
@@ -44,10 +45,8 @@
 		?>
 	</div>
 	<div style="height: 30px;"></div>
-<<<<<<< HEAD
-=======
 
-	
+<!--	
 <?php
 /*
  * Fonction d'upload
@@ -55,13 +54,14 @@
  * Ajouter une vérif sur l'uploader (ou pas, le blocage des droits de la page devrait suffire)
  * Lors de l'ajout dans la BDD, mettre le logiciel en pending
  * Déplacer cette fonction une fois le site crée
- */
+ 
 if (isset($_FILES['fichier']) AND $_FILES['fichier']['error'] == 0)
 {
 	$nom = md5(uniqid(rand(), true));;
 	$resultat = move_uploaded_file($_FILES['fichier']['tmp_name'],"wp-content/themes/premier_theme/upload/".$nom);
 	if ($resultat) echo "Transfert réussi";
 }
+*/
 ?>
 <form method="post" enctype="multipart/form-data" action="<?php bloginfo('home'); ?>/">
      <label for="fichier">Fichier :</label><br />
@@ -76,5 +76,5 @@ if (isset($_FILES['fichier']) AND $_FILES['fichier']['error'] == 0)
 
 	
 	
->>>>>>> origin/master
+-->
 	<div id="page">

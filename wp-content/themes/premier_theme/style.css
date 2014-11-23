@@ -119,10 +119,13 @@ a {
 
 #title {
 	display: table-cell;
+	width: 70%;
+	font-family: "Bangers";
 }
 
-#formulaire {
-	display: table-cell;
+#title h1 a{
+	font-size: 52pt;
+	color: white;
 }
 
 .menu {
@@ -179,8 +182,8 @@ a {
 	background: rgba(0,85,119,0.05);
 }
 
-input {
-	border-radius: 5px;
+input[type="text"],
+input[type="password"] {
 	height: 20px;
 	padding-left: 10px;
 }
@@ -191,15 +194,20 @@ input {
 
 #wpmem_login {
 	display: table-cell;
-	width: 40%;
+	width: 30%;
+	min-width: 250px;
 }
 
 .div_text {
-	width: 50%;
+	text-align: right;
 }
 
-label {
-	display: inline-flex;
+.form label{
+	display: none;
+}
+
+input[type="submit"] {
+	width: 150px;
 }
 
 .post {
@@ -224,8 +232,6 @@ h1 {
 h2 a {
 	color: white;
 }
-
-
 
 #wp-calendar {
 	width: 100%;
