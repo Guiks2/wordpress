@@ -130,7 +130,6 @@ see http://rocketgeek.com/tips-and-tricks/load-a-custom-stylesheet/
 #wpmem_reg fieldset, #wpmem_login fieldset {
 	border: none;
 	padding: 0;
-	margin: 40px 0;
 }
 #wpmem_reg legend, #wpmem_login legend {
 	font-size: 24px;

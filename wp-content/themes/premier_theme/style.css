@@ -194,6 +194,7 @@ input[type="password"] {
 
 #wpmem_login {
 	display: table-cell;
+	vertical-align: top;
 	width: 60%;
 	min-width: 250px;
 }
