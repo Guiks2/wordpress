@@ -4,7 +4,7 @@
           
                 <div id="content">
                     <?php 
-						echo '<h1>Quoi de neuf ?</h1>';
+					echo '<h1>Résultats de recherche : '. $_GET['s'] .'</h1>';
 				if(have_posts()) :
 					while(have_posts()) : 
 					the_post();
@@ -19,7 +19,7 @@
 						<?php the_time('j F Y') ?> par <?php the_author() ?> | Cat&eacute;gorie: <?php the_category(', ') ?> | <?php comments_popup_link('Pas de commentaires', '1 Commentaire', '% Commentaires'); ?> <?php edit_post_link('Editer', ' &#124; ', ''); ?>
 					</p>	
 					<div class="post_content">
-						<?php the_content(); ?>
+						<?php the_excerpt(); ?>
 					</div>
 				</div>
 				<?php
