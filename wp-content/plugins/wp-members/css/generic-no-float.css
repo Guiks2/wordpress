@@ -151,7 +151,7 @@ see http://rocketgeek.com/tips-and-tricks/load-a-custom-stylesheet/
 #wpmem_reg .div_text, #wpmem_reg .div_textarea, 
 #wpmem_reg .div_select, #wpmem_login .div_text,
 #wpmem_reg .div_checkbox { 
-	width:74%;
+	width:90%;
 	margin:0 0 14px 0;
 }
 #wpmem_login input[type="checkbox"] {
@@ -206,7 +206,7 @@ see http://rocketgeek.com/tips-and-tricks/load-a-custom-stylesheet/
 /* Buttons */
 
 #wpmem_reg .button_div, #wpmem_login .button_div {
-	width:74%;
+	width:90%;
 	height:35px;
 	padding: 6px 0;
 	text-align: right;

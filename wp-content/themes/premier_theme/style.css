@@ -119,7 +119,7 @@ a {
 
 #title {
 	display: table-cell;
-	width: 70%;
+	width: 40%;
 	font-family: "Bangers";
 }
 
@@ -194,7 +194,7 @@ input[type="password"] {
 
 #wpmem_login {
 	display: table-cell;
-	width: 30%;
+	width: 60%;
 	min-width: 250px;
 }
 
@@ -202,7 +202,7 @@ input[type="password"] {
 	text-align: right;
 }
 
-.form label{
+#wpmem_login .form label{
 	display: none;
 }
 
@@ -236,4 +236,18 @@ h2 a {
 #wp-calendar {
 	width: 100%;
 	text-align: center;
+}
+
+#header {
+	text-align: right;
+}
+
+@media screen and (max-width: 950px) {
+	.sidebar {
+		display: none;
+	}
+	
+	#wpmem_login {
+		display: none;
+	}
 }
