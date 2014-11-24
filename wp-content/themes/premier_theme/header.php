@@ -8,7 +8,6 @@
     <meta name="generator" content="WordPress <?php bloginfo('version'); ?>" />
     <!-- leave this for stats -->
     <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-<<<<<<< HEAD
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>" />
@@ -39,46 +38,6 @@
 	</script>
 </head>
 <body>
-	<div id="header">
-    	<div id="menu-button"></div>
-		<div id="title">
-			<h1>
-				<a href="<?php bloginfo('url'); ?>">
-					<?php bloginfo('name'); ?>
-				</a>
-			</h1>
-			<?php bloginfo('description'); ?>
-		</div>
-		<?php 
-		echo do_shortcode( '[wp-members page="login"]');
-		if ( is_user_logged_in() ) {
-			$sql = 'SELECT ID '.
-			'FROM wp_posts '.
-			'INNER JOIN wp_postmeta ON wp_postmeta.post_id=wp_posts.ID '.
-			'WHERE wp_postmeta.meta_value="edit_profil.php" '.
-				'AND wp_postmeta.meta_key="_wp_page_template"'; 
-			$id_page = $wpdb->get_var($sql);
-			
-			echo '<a href="?page_id='.$id_page.'">Accès au profil</a>';
-		}
-		?>
-	</div>
-	<div style="height: 30px;"></div>
-=======
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
-    <link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>" />
-    <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="<?php bloginfo('atom_url'); ?>" />
-    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" /><?php wp_head(); ?>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
-     
-    <?php wp_get_archives('type=monthly&format=link'); ?>
-    <?php //comments_popup_script(); // off by default ?>
-    <?php wp_enqueue_script("jquery"); ?> 
-    <?php wp_head(); ?>
-  
-</head>
-<body>
     <div id="header">
         <div id="title">
             <h1>
@@ -104,10 +63,6 @@
     </div>
     <div style="height: 30px;"></div>
 
-
-
->>>>>>> master
-
 <?php
 /*
  * Fonction d'upload
@@ -115,7 +70,7 @@
  * Ajouter une vérif sur l'uploader (ou pas, le blocage des droits de la page devrait suffire)
  * Lors de l'ajout dans la BDD, mettre le logiciel en pending
  * Déplacer cette fonction une fois le site crée
- */
+ *
 if (isset($_FILES['fichier']) AND $_FILES['fichier']['error'] == 0)
 {
     $nom = md5(uniqid(rand(), true));;
@@ -124,14 +79,14 @@ if (isset($_FILES['fichier']) AND $_FILES['fichier']['error'] == 0)
      
     /*
      * 
-     */
+     *
     $sql = "INSERT INTO upload_file(upload_code, upload_filesize, upload_name, upload_title, upload_description, upload_date, upload_id_owner, upload_isPending)".
     " VALUES ('".$nom."', '".$_FILES['fichier']['size']."', '".$_FILES['fichier']['name']."', '".$_POST['titre']."', '".$_POST['description']."', CURDATE(), '".get_current_user_id()."', true);";
     $wpdb->query($sql);
 }
-
+*/
 ?>
-<form method="post" enctype="multipart/form-data" action="<?php bloginfo('home'); ?>/">
+<!--<form method="post" enctype="multipart/form-data" action="<?php bloginfo('home'); ?>/">
      <label for="fichier">Fichier :</label><br />
      <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
      <input type="file" name="fichier" id="fichier" /><br />
@@ -140,7 +95,7 @@ if (isset($_FILES['fichier']) AND $_FILES['fichier']['error'] == 0)
      <label for="description">Description du fichier :</label><br />
      <textarea name="description" id="description"></textarea><br />
      <input type="submit" name="submit" value="Envoyer" />
-</form>
+</form>-->
  
 <?php
          
