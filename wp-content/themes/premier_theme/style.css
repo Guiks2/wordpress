@@ -311,6 +311,12 @@ li {
 	cursor: pointer;
 }
 
+.notfound {
+	width: 100%;
+	border-top: solid 4px #057;
+	border-bottom: solid 4px #057;
+}
+
 @media screen and (max-width: 950px) {
 	.sidebar {
 		display: none;
@@ -319,7 +325,6 @@ li {
 	#wpmem_login {
 		display: none;
 	}
-<<<<<<< HEAD
 	
 	#menu-button {
 		height: 50px; 
@@ -333,13 +338,4 @@ li {
 		left: 30px; 
 		border: solid 1px black;
 	}
-=======
-}
-
-
-.notfound {
-	width: 100%;
-	border-top: solid 4px #057;
-	border-bottom: solid 4px #057;
->>>>>>> master
 }
