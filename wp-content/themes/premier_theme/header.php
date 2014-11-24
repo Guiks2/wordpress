@@ -22,11 +22,14 @@
  	
     <script>
 		jQuery(document).ready(function() {
-			jQuery('.menu-item > ul').hide();
+			jQuery('.sidebar #menu div .menu-item > ul').hide();
+			jQuery('#menu-button').click(function() {
+				jQuery("#hidden-menu").slideToggle(400);
+				return false;
+			});
 			jQuery('li a').click(function(event) {
 				event.stopPropagation();
 				var url = jQuery(this).attr("href");
-				alert(url);
 				window.location.href = url;
 			});
 			jQuery('.menu-item').click(function() {
@@ -39,6 +42,10 @@
 </head>
 <body>
     <div id="header">
+    	<div id="hidden-menu">
+        	<li id="menu"><?php wp_nav_menu( array( 'theme_location' => 'main_menu', 'menu_class' => 'menu' ) ); ?></li>
+        </div>
+    	<div id="menu-button"></div>
         <div id="title">
             <h1>
                 <a href="<?php bloginfo('url'); ?>">
