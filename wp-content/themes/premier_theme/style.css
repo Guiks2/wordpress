@@ -119,10 +119,13 @@ a {
 
 #title {
 	display: table-cell;
+	width: 40%;
+	font-family: "Bangers";
 }
 
-#formulaire {
-	display: table-cell;
+#title h1 a{
+	font-size: 52pt;
+	color: white;
 }
 
 .menu {
@@ -151,6 +154,8 @@ a {
 #all {
 	display: table;
 	width: 100%;
+	border-top: solid 4px #057;
+	border-bottom: solid 4px #057;
 }
 
 #page {
@@ -158,64 +163,91 @@ a {
 	margin: 0 auto;
 	width: 80%;
 	border-left: solid 2px #057;
+	border-right: solid 2px #057;
 }
  
 .sidebar {
 	width: 25%;
 	display: table-cell;
 	margin-left: 3px;
-	background-color: rgba(255,255,255,0.8);
+	background-color: rgba(0,85,119,0.2);
 	padding-left: 25px;
 	border-right: dashed 2px rgba(0,0,0,1);
-	border-top: solid 4px #057;
 }
 
 #content {
-	padding-left: 40px;
-	width: 75%;
+	padding: 0 40px 10px 40px;
+	width: 60%;
 	display: table-cell;
-	background: url('subtle_dots.png');
-	color: black;
-	border-top: solid 4px #057;
-	border-right: solid 2px #057;
+	background: rgba(0,85,119,0.05);
 }
 
-#login-form .login-username,
-#login-form .login-password,
-#login-form .login-submit {
-	display: inline-block;
-}
-
-#login-form,
-#login-form label {
-	display: block;
-	text-align: right;
-}
-
-#login-form .login-remember {
-	font-size: 9pt;
-	margin-top: -10px;
-}
-
-#login-form a {
-	font-size: 9pt;
-}
-
-#login-form .login-submit {
-	margin-top: -15px;
-}
-
-#login-form .login-submit #wp-submit {
-	font-size: 12pt;
-	width: 190px;
-	height: 30px;
-}
-
-input {
-	border-radius: 5px;
+input[type="text"],
+input[type="password"] {
 	height: 20px;
 	padding-left: 10px;
 }
+
+#log {
+	width: 200px;
+}
+
+#wpmem_login {
+	display: table-cell;
+	vertical-align: top;
+	width: 60%;
+	min-width: 250px;
+}
+
+.div_text {
+	text-align: right;
+}
+
+#wpmem_login .form label{
+	display: none;
+}
+
+input[type="submit"] {
+	width: 150px;
+	-moz-box-shadow:inset 0px 0px 15px 3px #23395e;
+	-webkit-box-shadow:inset 0px 0px 15px 3px #23395e;
+	box-shadow:inset 0px 0px 15px 3px #23395e;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2e466e), color-stop(1, #415989));
+	background:-moz-linear-gradient(top, #2e466e 5%, #415989 100%);
+	background:-webkit-linear-gradient(top, #2e466e 5%, #415989 100%);
+	background:-o-linear-gradient(top, #2e466e 5%, #415989 100%);
+	background:-ms-linear-gradient(top, #2e466e 5%, #415989 100%);
+	background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e466e', endColorstr='#415989',GradientType=0);
+	background-color:#2e466e;
+	-moz-border-radius:17px;
+	-webkit-border-radius:17px;
+	border-radius:10px;
+	border:1px solid #057;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	padding:6px 13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+input[type="submit"]:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #415989), color-stop(1, #2e466e));
+	background:-moz-linear-gradient(top, #415989 5%, #2e466e 100%);
+	background:-webkit-linear-gradient(top, #415989 5%, #2e466e 100%);
+	background:-o-linear-gradient(top, #415989 5%, #2e466e 100%);
+	background:-ms-linear-gradient(top, #415989 5%, #2e466e 100%);
+	background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#415989', endColorstr='#2e466e',GradientType=0);
+	background-color:#415989;
+}
+input[type="submit"]:active {
+	position:relative;
+	top:1px;
+}
+
 
 .post {
 	width: 90%;
@@ -226,12 +258,50 @@ h1 {
 	color: #057;
 }
 
-h2 :hover {
+#content h2  {
 	transition: color 0.2s linear;
-	color: #057;
+	background-color: rgba(0,85,119,0.8);
+	padding: 5px;
+}
+
+#content h2 :hover {
+	color: #0AF;
+}
+
+h2 a {
+	color: white;
 }
 
 #wp-calendar {
 	width: 100%;
 	text-align: center;
+}
+
+#header {
+	text-align: right;
+}
+
+.post_content #wpmem_msg {
+	border: solid 2px #057;
+}
+
+#header #wpmem_msg {
+	display: none;
+}
+
+@media screen and (max-width: 950px) {
+	.sidebar {
+		display: none;
+	}
+	
+	#wpmem_login {
+		display: none;
+	}
+}
+
+
+.notfound {
+	width: 100%;
+	border-top: solid 4px #057;
+	border-bottom: solid 4px #057;
 }

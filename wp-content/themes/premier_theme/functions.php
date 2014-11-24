@@ -28,5 +28,4 @@ function lien_mot_de_passe_perdu( $formbottom ) {
 	$formbottom .= '<a href="' . wp_lostpassword_url() . '">Mot de passe perdu ?</a>';
 	return $formbottom;
 }
-
 ?>

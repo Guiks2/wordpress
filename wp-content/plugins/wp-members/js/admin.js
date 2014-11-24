@@ -28,6 +28,7 @@
  *
  * @since 2.6
  */
+
 (function($) {
 	$(document).ready(function() {
 	

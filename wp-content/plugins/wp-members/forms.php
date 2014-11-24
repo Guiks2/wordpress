@@ -67,14 +67,14 @@ function wpmem_inc_login( $page="page" )
 	/** create the default inputs **/
 	$default_inputs = array(
 		array(
-			'name'   => __( 'Username' ), 
+			'name'   => __( 'Login' ), 
 			'type'   => 'text', 
 			'tag'    => 'log',
 			'class'  => 'username',
 			'div'    => 'div_text'
 		),
 		array( 
-			'name'   => __( 'Password' ), 
+			'name'   => __( 'Mot de passe' ), 
 			'type'   => 'password', 
 			'tag'    => 'pwd', 
 			'class'  => 'password',
@@ -92,7 +92,7 @@ function wpmem_inc_login( $page="page" )
 	$default_inputs = apply_filters( 'wpmem_inc_login_inputs', $default_inputs );
 	
     $defaults = array( 
-		'heading'      => __( 'Existing Users Log In', 'wp-members' ), 
+		'heading'      => __( '', 'wp-members' ), 
 		'action'       => 'login', 
 		'button_text'  => __( 'Log In' ),
 		'inputs'       => $default_inputs
@@ -133,14 +133,14 @@ function wpmem_inc_changepassword()
 	/** create the default inputs **/
 	$default_inputs = array(
 		array(
-			'name'   => __( 'New password' ), 
+			'name'   => __( 'Nouveau mot de passe' ), 
 			'type'   => 'password',
 			'tag'    => 'pass1',
 			'class'  => 'password',
 			'div'    => 'div_text'
 		),
 		array( 
-			'name'   => __( 'Confirm new password' ), 
+			'name'   => __( 'Confirmer nouveau mot de passe' ), 
 			'type'   => 'password', 
 			'tag'    => 'pass2',
 			'class'  => 'password',
@@ -275,8 +275,8 @@ function wpmem_login_form( $page, $arr )
 		'fieldset_after'  => '</fieldset>',
 		'main_div_before' => '<div id="wpmem_login">',
 		'main_div_after'  => '</div>',
-		'txt_before'      => '[wpmem_txt]',
-		'txt_after'       => '[/wpmem_txt]',
+		'txt_before'      => '',
+		'txt_after'       => '',
 		'row_before'      => '',
 		'row_after'       => '',
 		'buttons_before'  => '<div class="button_div">',
@@ -372,7 +372,7 @@ function wpmem_login_form( $page, $arr )
 
 	// build the buttons, filter, and add to the form
 	if ( $action == 'login' ) {
-		$remember_check = ( $remember_check ) ? $t . wpmem_create_formfield( 'rememberme', 'checkbox', 'forever' ) . '&nbsp;' . __( 'Remember Me' ) . '&nbsp;&nbsp;' . $n : '';
+		$remember_check = ( $remember_check ) ? $t . wpmem_create_formfield( 'rememberme', 'checkbox', 'forever' ) . '&nbsp;' . __( 'Se souvenir de moi' ) . '&nbsp;&nbsp;' . $n : '';
 		$buttons =  $remember_check . $t . '<input type="submit" name="Submit" value="' . $button_text . '" class="' . $button_class . '" />' . $n;
 	} else {
 		$buttons = '<input type="submit" name="Submit" value="' . $button_text . '" class="' . $button_class . '" />' . $n;
@@ -400,7 +400,7 @@ function wpmem_login_form( $page, $arr )
 		 * @param string The forgot password link.
 	 	 */
 		$link = apply_filters( 'wpmem_forgot_link', wpmem_chk_qstr( WPMEM_MSURL ) . 'a=pwdreset' );	
-		$str  = __( 'Forgot password?', 'wp-members' ) . '&nbsp;<a href="' . $link . '">' . __( 'Click here to reset', 'wp-members' ) . '</a>';
+		$str  = __( 'Mot de passe oublié ?', 'wp-members' ) . '&nbsp;<a href="' . $link . '">' . __( 'Réinitialiser le mot de passe', 'wp-members' ) . '</a>';
 		$form = $form . $link_before . apply_filters( 'wpmem_forgot_link_str', $str ) . $link_after . $n;
 		
 	}
@@ -415,7 +415,7 @@ function wpmem_login_form( $page, $arr )
 		 * @param string The registration page link.
 	 	 */
 		$link = apply_filters( 'wpmem_reg_link', WPMEM_REGURL );
-		$str  = __( 'New User?', 'wp-members' ) . '&nbsp;<a href="' . $link . '">' . __( 'Click here to register', 'wp-members' ) . '</a>';
+		$str  = __( 'Pas encore inscrit ?', 'wp-members' ) . '&nbsp;<a href="' . $link . '">' . __( 'S\'inscrire', 'wp-members' ) . '</a>';
 		$form = $form . $link_before . apply_filters( 'wpmem_reg_link_str', $str ) . $link_after . $n;
 		
 	}			
@@ -497,8 +497,8 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 		'fieldset_after'   => '</fieldset>',
 		'main_div_before'  => '<div id="wpmem_reg">',
 		'main_div_after'   => '</div>',
-		'txt_before'       => '[wpmem_txt]',
-		'txt_after'        => '[/wpmem_txt]',
+		'txt_before'       => '',
+		'txt_after'        => '',
 		'row_before'       => '',
 		'row_after'        => '',
 		'buttons_before'   => '<div class="button_div">',
