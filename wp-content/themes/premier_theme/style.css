@@ -256,18 +256,21 @@ h2 a {
 }
 
 .sub-menu {
-	display: none;
-	position: absolute;
-    left: 20%;
+    left: 30.5%;
 }
 
 .sub-menu li {
-	float: none; 
+	padding-left: 50px;
     width: 150px;
+	border: none;
 }
 
 .menu-item:hover > .sub-menu{
 	display: block;
+}
+
+li {
+	cursor: pointer;
 }
 
 @media screen and (max-width: 950px) {

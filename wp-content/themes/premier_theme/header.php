@@ -18,7 +18,17 @@
 	<?php //comments_popup_script(); // off by default ?>
 	<?php wp_enqueue_script("jquery"); ?> 
 	<?php wp_head(); ?>
- 
+ 	
+    <script>
+		jQuery(document).ready(function() {
+			jQuery('.menu-item > ul').hide();
+			jQuery('.menu-item').click(function() {
+				var ul = jQuery("ul:first", this);
+				jQuery(ul).slideToggle(400);
+				return false;
+			});
+		});
+	</script>
 </head>
 <body>
 	<div id="header">
