@@ -23,6 +23,11 @@
     <script>
 		jQuery(document).ready(function() {
 			jQuery('.sidebar #menu div .menu-item > ul').hide();
+			jQuery("#hidden-menu").hide();
+			jQuery(window).on('resize', function(){
+			  var win = jQuery(this); //this = window
+			  if (win.width() > 950) {jQuery("#hidden-menu").hide();}
+			});
 			jQuery('#menu-button').click(function() {
 				jQuery("#hidden-menu").slideToggle(400);
 				return false;
