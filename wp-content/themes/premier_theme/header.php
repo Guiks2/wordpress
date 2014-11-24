@@ -49,7 +49,7 @@
 
 
 
-<!--	
+
 <?php
 /*
  * Fonction d'upload
@@ -57,7 +57,7 @@
  * Ajouter une vérif sur l'uploader (ou pas, le blocage des droits de la page devrait suffire)
  * Lors de l'ajout dans la BDD, mettre le logiciel en pending
  * Déplacer cette fonction une fois le site crée
- 
+ */
 if (isset($_FILES['fichier']) AND $_FILES['fichier']['error'] == 0)
 {
     $nom = md5(uniqid(rand(), true));;
@@ -71,7 +71,7 @@ if (isset($_FILES['fichier']) AND $_FILES['fichier']['error'] == 0)
     " VALUES ('".$nom."', '".$_FILES['fichier']['size']."', '".$_FILES['fichier']['name']."', '".$_POST['titre']."', '".$_POST['description']."', CURDATE(), '".get_current_user_id()."', true);";
     $wpdb->query($sql);
 }
-*/
+
 ?>
 <form method="post" enctype="multipart/form-data" action="<?php bloginfo('home'); ?>/">
      <label for="fichier">Fichier :</label><br />
