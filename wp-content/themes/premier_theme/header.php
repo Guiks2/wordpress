@@ -22,6 +22,7 @@
 </head>
 <body>
 	<div id="header">
+    	<div id="menu-button"></div>
 		<div id="title">
 			<h1>
 				<a href="<?php bloginfo('url'); ?>">

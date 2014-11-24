@@ -251,6 +251,25 @@ h2 a {
 	display: none;
 }
 
+#menu-button {
+	display: none;
+}
+
+.sub-menu {
+	display: none;
+	position: absolute;
+    left: 20%;
+}
+
+.sub-menu li {
+	float: none; 
+    width: 150px;
+}
+
+.menu-item:hover > .sub-menu{
+	display: block;
+}
+
 @media screen and (max-width: 950px) {
 	.sidebar {
 		display: none;
@@ -258,5 +277,18 @@ h2 a {
 	
 	#wpmem_login {
 		display: none;
+	}
+	
+	#menu-button {
+		height: 50px; 
+		width: 50px; 
+		background: url('menu-carre.jpg'); 
+		background-size: cover;
+		position: fixed; 
+		display: block;
+		opacity: 0.5;
+		top: 30px; 
+		left: 30px; 
+		border: solid 1px black;
 	}
 }
