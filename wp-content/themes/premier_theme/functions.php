@@ -1,4 +1,6 @@
 <?php
+// Cache la barre d'outil par défaut
+show_admin_bar(false);
 
 // Menu
 add_action('init', 'theme_menu') ;
