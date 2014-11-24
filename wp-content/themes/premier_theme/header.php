@@ -22,6 +22,12 @@
     <script>
 		jQuery(document).ready(function() {
 			jQuery('.menu-item > ul').hide();
+			jQuery('li a').click(function(event) {
+				event.stopPropagation();
+				var url = jQuery(this).attr("href");
+				alert(url);
+				window.location.href = url;
+			});
 			jQuery('.menu-item').click(function() {
 				var ul = jQuery("ul:first", this);
 				jQuery(ul).slideToggle(400);
