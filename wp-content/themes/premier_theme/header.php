@@ -51,6 +51,7 @@
         	<li id="menu"><?php wp_nav_menu( array( 'theme_location' => 'main_menu', 'menu_class' => 'menu' ) ); ?></li>
         </div>
     	<div id="menu-button"></div>
+         <a href="<?php bloginfo('url'); ?>"><img src="wp-content/themes/premier_theme/images/logo.png" width="150" height="150" style="display: table-cell;"></a>
         <div id="title">
             <h1>
                 <a href="<?php bloginfo('url'); ?>">
