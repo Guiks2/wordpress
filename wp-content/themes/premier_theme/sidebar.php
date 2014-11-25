@@ -4,7 +4,7 @@
 		<li id="search"><h2>Rechercher sur le site</h2><?php include(TEMPLATEPATH . '/searchform.php'); ?></li>
 		<li id="calendar">
 			<h2>Calendrier</h2>
-			<?php get_calendar(); ?>
+			<?php echo do_shortcode('[ai1ec view="agenda"]') ?>
 		</li>
 	</ul>
 </div>
