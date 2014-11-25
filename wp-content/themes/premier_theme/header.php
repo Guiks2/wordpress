@@ -61,8 +61,9 @@
             <?php bloginfo('description'); ?>
         </div>
         <?php 
-        if( is_plugin_active( 'wp-members/wp-members.php' ) ) {
-	        echo do_shortcode( '[wp-members page="login"]');
+        if( !is_user_logged_in()) {
+	        echo wp_login_form();
+		} else {
 	        if ( is_user_logged_in() ) {
 	            $sql = 'SELECT ID '.
 	            'FROM wp_posts '.
@@ -71,7 +72,7 @@
 	                'AND wp_postmeta.meta_key="_wp_page_template"'; 
 	            $id_page = $wpdb->get_var($sql);
 	             
-	            echo '<a href="?page_id='.$id_page.'">Accès au profil</a>';
+	            echo '<a href="?page_id='.$id_page.'">Profil</a>';
 	        }
 		}
         ?>
