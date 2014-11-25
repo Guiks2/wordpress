@@ -28,4 +28,7 @@ function lien_mot_de_passe_perdu( $formbottom ) {
 	$formbottom .= '<a href="' . wp_lostpassword_url() . '">Mot de passe perdu ?</a>';
 	return $formbottom;
 }
+
+add_theme_support( 'post-thumbnails', array( 'post' ) ); // Ajouter sur les articles uniquement
+set_post_thumbnail_size( 50, 50, true ); // Miniatures de l'accueil
 ?>
