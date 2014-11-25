@@ -65,16 +65,31 @@
         if( !is_user_logged_in()) {
 	        echo wp_login_form();
 		} else {
-	        if ( is_user_logged_in() ) {
-	            $sql = 'SELECT ID '.
-	            'FROM wp_posts '.
-	            'INNER JOIN wp_postmeta ON wp_postmeta.post_id=wp_posts.ID '.
-	            'WHERE wp_postmeta.meta_value="edit_profil.php" '.
-	                'AND wp_postmeta.meta_key="_wp_page_template"'; 
-	            $id_page = $wpdb->get_var($sql);
-	             
-	            echo '<a href="?page_id='.$id_page.'">Profil</a>';
-	        }
+            $sql = 'SELECT ID '.
+            'FROM wp_posts '.
+            'INNER JOIN wp_postmeta ON wp_postmeta.post_id=wp_posts.ID '.
+            'WHERE wp_postmeta.meta_value="edit_profil.php" '.
+                'AND wp_postmeta.meta_key="_wp_page_template"'; 
+            $id_page = $wpdb->get_var($sql);
+             
+			$sql = 'SELECT COUNT(*) as nb '.
+		    'FROM upload_file '.
+		    'WHERE upload_isPending = 1';
+		    $pending_files = $wpdb->get_results($sql);
+			
+			if(current_user_can('manage_options')) {
+				echo '<div class="icon_div" align="right">
+		            <p><a href=""><img src="'.get_site_url().'/wp-content/themes/premier_theme/images/conf.png" width="50" height="50"></a></p>
+		            <p><a href="?page_id='.$id_page.'"><img src="'.get_site_url().'/wp-content/themes/premier_theme/images/user.png" width="50" height="50"></a></p>
+		            <a href="'.wp_logout_url( home_url() ).'"><img src="'.get_site_url().'/wp-content/themes/premier_theme/images/logout.png" width="50" height="50"></a>
+		            <p class="icon_num">'.$pending_files[0]->nb.'</p>
+		            </div>';
+			} else {
+				echo '<div class="icon_div" align="right">
+		            <p><a href="?page_id='.$id_page.'"><img src="'.get_site_url().'/wp-content/themes/premier_theme/images/user.png" width="50" height="50"></a></p>
+		            <a href="'.wp_logout_url( home_url() ).'"><img src="'.get_site_url().'/wp-content/themes/premier_theme/images/logout.png" width="50" height="50"></a>
+		            </div>';
+			}
 		}
         ?>
     </div>

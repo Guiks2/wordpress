@@ -196,7 +196,7 @@ textarea {
 	resize: vertical;
 }
 
-#wpmem_login {
+#loginform {
 	display: table-cell;
 	vertical-align: top;
 	width: 60%;
@@ -207,7 +207,7 @@ textarea {
 	text-align: right;
 }
 
-#wpmem_login .form label{
+#loginform .form label{
 	display: none;
 }
 
@@ -365,12 +365,34 @@ li {
 	margin-right: 40px;
 }
 
+.icon_div {
+ width: 50px;
+ position: absolute;
+ top: 0px;
+ right: 20px;
+}
+
+.icon_div a {
+ color: white;
+}
+
+.icon_num {
+ height: 25px;
+ margin-top: 25px;
+ color: white;
+ background-color: #057;
+ text-align: center;
+ border: 2px solid #057;
+ border-radius: 3px;
+}
+
+
 @media screen and (max-width: 950px) {
 	.sidebar {
 		display: none;
 	}
 	
-	#wpmem_login {
+	#loginform {
 		display: none;
 	}
 	
