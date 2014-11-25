@@ -55,6 +55,21 @@ if (isset($_FILES['fichier']) AND $_FILES['fichier']['error'] == 0)
 } else if ($_FILES['fichier']['error'] == 2 || $_FILES['fichier']['error'] == 1){
 	echo('Le fichier est trop gros.');
 }
+
+/*
+ * Fonction de gestion des fichiers en attente
+ */
+if(isset($_POST['update'])){
+	$sql = 'UPDATE upload_file '.
+	    'SET upload_isPending = 0 '.
+	    'WHERE upload_id = '.$_POST['file'];
+    $res = $wpdb->get_results($sql);
+}
+if(isset($_POST['delete'])){
+	$sql = 'DELETE FROM upload_file '.
+	    'WHERE upload_id = '.$_POST['file'];
+    $res = $wpdb->get_results($sql);
+}
 ?>
 
 <form method="post" enctype="multipart/form-data" action="<?php the_permalink(); ?>">
@@ -80,21 +95,45 @@ if (isset($_FILES['fichier']) AND $_FILES['fichier']['error'] == 0)
  
 <?php
         
+	// Liste des fichiers en attentes (uniquement pour l'admin)
+	if(current_user_can('manage_options')) {
+		$sql = 'SELECT * '.
+	    'FROM upload_file '.
+	    'WHERE upload_isPending = 1';
+	    $pending_files = $wpdb->get_results($sql);
+		
+		echo 'En attente<br/>';
+		$i=0;
+	    while(isset($pending_files[$i])){
+			echo '<form method="post" enctype="multipart/form-data" action="';
+			echo the_permalink();
+			echo '">';
+		        echo('<a download="'.$pending_files[$i]->upload_name.'" href="wp-content/themes/premier_theme/upload/'.$pending_files[$i]->upload_code.'">'.$pending_files	[$i]->upload_title.'</a>'.
+	     			'<input type="hidden" name="file" value="'.$pending_files[$i]->upload_id.'" />'.
+	     			'<input type="submit" name="delete" value="-" />'.
+	     			'<input type="submit" name="update" value="+" />'.
+		        	'<br/>');
+		        $i++;
+			echo '</form>';
+	    }
+	}
 	
 	$j=0;
 	while(isset($category[$j])){
  
-	 	// Liste des fichiers upload
+	 	// Liste des fichiers upload qui ne sont plus en attente
 	    $sql3 = 'SELECT * '.
 	    'FROM upload_file '.
-	    'WHERE upload_id_category='.$category[$j]->upload_category_id;
+	    'WHERE upload_id_category='.$category[$j]->upload_category_id.' AND upload_isPending = 0';
 	    $files = $wpdb->get_results($sql3);
 	
-		echo $category[$j]->upload_category_name.'<br/>';
-	    $i=0;
-	    while(isset($files[$i])){
-	        echo('<a download="'.$files[$i]->upload_name.'" href="wp-content/themes/premier_theme/upload/'.$files[$i]->upload_code.'">'.$files[$i]->upload_title.'</a><br/>');
-	        $i++;
+		if(!empty($files)){
+			echo $category[$j]->upload_category_name.'<br/>';
+		    $i=0;
+		    while(isset($files[$i])){
+		        echo('<a download="'.$files[$i]->upload_name.'" href="wp-content/themes/premier_theme/upload/'.$files[$i]->upload_code.'">'.$files[$i]->upload_title.'</a><br/>');
+		        $i++;
+		    }
 	    }
 	    $j++;
     }
