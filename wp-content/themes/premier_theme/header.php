@@ -19,6 +19,7 @@
 	<?php //comments_popup_script(); // off by default ?>
 	<?php wp_enqueue_script("jquery"); ?> 
 	<?php wp_head(); ?>
+ 	<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); ?>
  	
     <script>
 		jQuery(document).ready(function() {
@@ -60,17 +61,19 @@
             <?php bloginfo('description'); ?>
         </div>
         <?php 
-        echo do_shortcode( '[wp-members page="login"]');
-        if ( is_user_logged_in() ) {
-            $sql = 'SELECT ID '.
-            'FROM wp_posts '.
-            'INNER JOIN wp_postmeta ON wp_postmeta.post_id=wp_posts.ID '.
-            'WHERE wp_postmeta.meta_value="edit_profil.php" '.
-                'AND wp_postmeta.meta_key="_wp_page_template"'; 
-            $id_page = $wpdb->get_var($sql);
-             
-            echo '<a href="?page_id='.$id_page.'">Accès au profil</a>';
-        }
+        if( is_plugin_active( 'wp-members/wp-members.php' ) ) {
+	        echo do_shortcode( '[wp-members page="login"]');
+	        if ( is_user_logged_in() ) {
+	            $sql = 'SELECT ID '.
+	            'FROM wp_posts '.
+	            'INNER JOIN wp_postmeta ON wp_postmeta.post_id=wp_posts.ID '.
+	            'WHERE wp_postmeta.meta_value="edit_profil.php" '.
+	                'AND wp_postmeta.meta_key="_wp_page_template"'; 
+	            $id_page = $wpdb->get_var($sql);
+	             
+	            echo '<a href="?page_id='.$id_page.'">Accès au profil</a>';
+	        }
+		}
         ?>
     </div>
     <div style="height: 30px;"></div>
