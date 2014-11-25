@@ -141,10 +141,10 @@ a {
 
 .menu-item {
 	border-bottom: dashed 1px black;
-	margin-top: 10px;
+	padding-top: 10px;
 }
 
-.menu-item :hover{
+.sidebar #menu div .menu-item :hover{
 	color: #057;
 	padding-left: 15px;
 	transition: padding-left 0.2s linear;
@@ -192,6 +192,10 @@ input[type="password"] {
 	width: 200px;
 }
 
+textarea {
+	resize: vertical;
+}
+
 #wpmem_login {
 	display: table-cell;
 	vertical-align: top;
@@ -206,6 +210,7 @@ input[type="password"] {
 #wpmem_login .form label{
 	display: none;
 }
+
 
 input[type="submit"] {
 	width: 150px;
@@ -258,18 +263,19 @@ h1 {
 	color: #057;
 }
 
-#content h2  {
+#content h2 {
 	transition: color 0.2s linear;
 	background-color: rgba(0,85,119,0.8);
 	padding: 5px;
+	color: white;
+}
+
+#content h2 a {
+	color: white;
 }
 
 #content h2 :hover {
 	color: #0AF;
-}
-
-h2 a {
-	color: white;
 }
 
 #wp-calendar {
@@ -289,6 +295,70 @@ h2 a {
 	display: none;
 }
 
+#menu-button {
+	display: none;
+	cursor: pointer;
+}
+
+.sub-menu {
+    left: 30.5%;
+}
+
+.sidebar #menu div .menu-item .sub-menu li {
+	padding-left: 50px;
+    width: 150px;
+	border: none;
+}
+
+.sidebar #menu div .menu> .menu-item:hover {
+	transition: background-color 0.2s linear;
+	background-color: rgba(255,255,255,0.4);
+}
+
+.menu-item:hover > .sub-menu{
+	display: block;
+}
+
+li {
+	cursor: pointer;
+}
+
+.notfound {
+	width: 100%;
+	border-top: solid 4px #057;
+	border-bottom: solid 4px #057;
+}
+
+#hidden-menu {
+	display: none;
+}
+
+#upload-zone {
+	padding: 20px;
+	background-color: rgba(255,255,255,0.4);
+}
+
+#upload-zone input,
+#upload-zone select{
+	margin-bottom: 15px;
+}
+
+#upload-zone input[type="text"] {
+	width: 50%;
+}
+
+#upload-zone textarea {
+	width: 100%;
+}
+
+#uploaded-files input[type="submit"] {
+	width: 40px;
+}
+
+#uploaded-files a {
+	margin-right: 40px;
+}
+
 @media screen and (max-width: 950px) {
 	.sidebar {
 		display: none;
@@ -297,11 +367,48 @@ h2 a {
 	#wpmem_login {
 		display: none;
 	}
-}
-
-
-.notfound {
-	width: 100%;
-	border-top: solid 4px #057;
-	border-bottom: solid 4px #057;
+	
+	#title {
+		width: 100%;
+	}
+	
+	#header p {
+		display: none;
+	}
+	
+	#menu-button {
+		height: 50px; 
+		width: 50px; 
+		background: url('menu-carre.jpg'); 
+		background-size: cover;
+		position: fixed; 
+		display: block;
+		transition: opacity 0.2s linear;
+		opacity: 0.5;
+		top: 30px; 
+		left: 30px; 
+		border: solid 1px black;
+	}
+	
+	#menu-button:hover {
+		transition: opacity 0.2s linear;
+		opacity: 1;
+	}
+	
+	#hidden-menu {
+		position: fixed;
+		display: block;
+		top: 0; left: 0;
+		width: 200px;
+		background-color: #000;
+		padding-right: 15px;
+	}
+	
+	#hidden-menu li{
+		list-style-type:none;
+	}
+	
+	#hidden-menu li ul a{
+		color: white;
+	}
 }
