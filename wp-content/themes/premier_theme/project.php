@@ -8,7 +8,7 @@ Template Name: Projets
 				echo '<div id="content">';
 	
 	// Création des tables si elles n'existent pas
-	$sql="CREATE TABLE IF NOT EXISTS `upload_file` (
+	$sql="CREATE TABLE IF NOT EXISTS upload_file (
 		  `upload_id` int(11) NOT NULL AUTO_INCREMENT,
 		  `upload_code` varchar(50) NOT NULL,
 		  `upload_filesize` int(11) NOT NULL,
@@ -22,13 +22,13 @@ Template Name: Projets
 		  PRIMARY KEY (`upload_id`),
 		  KEY `upload_id` (`upload_id`)
 		) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;	
-		CREATE TABLE IF NOT EXISTS `upload_category` (
+		CREATE TABLE IF NOT EXISTS upload_category (
 		  `upload_category_id` int(11) NOT NULL AUTO_INCREMENT,
 		  `upload_category_name` varchar(255) NOT NULL,
 		  PRIMARY KEY (`upload_category_id`),
 		  KEY `upload_category_id` (`upload_category_id`)
 		) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-		INSERT INTO `wordpress`.`upload_category` (`upload_category_id`, `upload_category_name`) VALUES (1, 'Modélisation'), (2, 'Développement Jeux'), (3, 'Logiciels'), (4, 'Autres');";
+		INSERT INTO upload_category (`upload_category_id`, `upload_category_name`) VALUES (1, 'Modélisation'), (2, 'Développement Jeux'), (3, 'Logiciels'), (4, 'Autres');";
 	
 	$request = $wpdb->get_results($sql);
 	
@@ -72,29 +72,35 @@ if(isset($_POST['delete'])){
 }
 ?>
 
-<form method="post" enctype="multipart/form-data" action="<?php the_permalink(); ?>">
-     <label for="fichier">Fichier :</label><br />
-     <input type="hidden" name="MAX_FILE_SIZE" value="100048576" />
-     <input type="file" name="fichier" id="fichier" /><br />
-     <label for="titre">Titre du fichier :</label><br />
-     <input type="text" name="titre" value="Titre du fichier" id="titre" /><br />
-     <label for="description">Description du fichier :</label><br />
-     <textarea name="description" id="description"></textarea><br />
-     <label for="categorie">Catégorie du fichier :</label><br />
-     <select name="categorie" id="categorie">
-     	<?php
-     		$j=0;
-     		while(isset($category[$j])){
-	     		echo '<option value="'.$category[$j]->upload_category_id.'">'.$category[$j]->upload_category_name.'</option>';
-				$j++;
-			}
-		?>
-	 </select><br />
-     <input type="submit" name="submit" value="Envoyer" />
-</form>
- 
+<?php 	echo '<h1>';
+		the_title();
+		echo '</h1>'; ?>
+<div id="upload-zone">
+    <form method="post" enctype="multipart/form-data" action="<?php the_permalink(); ?>">
+         <label for="fichier">Fichier :</label><br />
+         <input type="hidden" name="MAX_FILE_SIZE" value="100048576" />
+         <input type="file" name="fichier" id="fichier" /><br />
+         <label for="titre">Titre du fichier :</label><br />
+         <input type="text" name="titre" value="Titre du fichier" id="titre" /><br />
+         <label for="description">Description du fichier :</label><br />
+         <textarea name="description" id="description"></textarea><br />
+         <label for="categorie">Catégorie du fichier :</label><br />
+         <select name="categorie" id="categorie">
+            <?php
+                $j=0;
+                while(isset($category[$j])){
+                    echo '<option value="'.$category[$j]->upload_category_id.'">'.$category[$j]->upload_category_name.'</option>';
+                    $j++;
+                }
+            ?>
+         </select><br />
+         <input type="submit" name="submit" value="Envoyer" />
+    </form>
+</div>
+
+<div id="uploaded-files">
 <?php
-        
+       
 	// Liste des fichiers en attentes (uniquement pour l'admin)
 	if(current_user_can('manage_options')) {
 		$sql = 'SELECT * '.
@@ -102,13 +108,13 @@ if(isset($_POST['delete'])){
 	    'WHERE upload_isPending = 1';
 	    $pending_files = $wpdb->get_results($sql);
 		
-		echo 'En attente<br/>';
+		echo '<h2>Fichiers en attente</h2><br/>';
 		$i=0;
 	    while(isset($pending_files[$i])){
 			echo '<form method="post" enctype="multipart/form-data" action="';
 			echo the_permalink();
 			echo '">';
-		        echo('<a download="'.$pending_files[$i]->upload_name.'" href="wp-content/themes/premier_theme/upload/'.$pending_files[$i]->upload_code.'">'.$pending_files	[$i]->upload_title.'</a>'.
+		        echo('<a download="'.$pending_files[$i]->upload_name.'" href="wp-content/themes/premier_theme/upload/'.$pending_files[$i]->upload_code.'">'.$pending_files[$i]->upload_title.' | '.$pending_files[$i]->upload_name .'</a>'.
 	     			'<input type="hidden" name="file" value="'.$pending_files[$i]->upload_id.'" />'.
 	     			'<input type="submit" name="delete" value="-" />'.
 	     			'<input type="submit" name="update" value="+" />'.
@@ -119,6 +125,7 @@ if(isset($_POST['delete'])){
 	}
 	
 	$j=0;
+	echo '<h2>Fichiers uploadés</h2><br/>';
 	while(isset($category[$j])){
  
 	 	// Liste des fichiers upload qui ne sont plus en attente
@@ -126,9 +133,9 @@ if(isset($_POST['delete'])){
 	    'FROM upload_file '.
 	    'WHERE upload_id_category='.$category[$j]->upload_category_id.' AND upload_isPending = 0';
 	    $files = $wpdb->get_results($sql3);
-	
+		
 		if(!empty($files)){
-			echo $category[$j]->upload_category_name.'<br/>';
+			echo '<h3>'.$category[$j]->upload_category_name.'</h3><br/>';
 		    $i=0;
 		    while(isset($files[$i])){
 		        echo('<a download="'.$files[$i]->upload_name.'" href="wp-content/themes/premier_theme/upload/'.$files[$i]->upload_code.'">'.$files[$i]->upload_title.'</a><br/>');
@@ -137,9 +144,12 @@ if(isset($_POST['delete'])){
 	    }
 	    $j++;
     }
-				echo '</div></div>';
-				get_footer();
 ?>
 		</div>
+        
+        <?php
+			echo '</div></div>';
+					get_footer();
+		?>
 	</body>
 </html>

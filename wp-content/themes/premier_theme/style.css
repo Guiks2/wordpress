@@ -192,6 +192,10 @@ input[type="password"] {
 	width: 200px;
 }
 
+textarea {
+	resize: vertical;
+}
+
 #wpmem_login {
 	display: table-cell;
 	vertical-align: top;
@@ -259,18 +263,19 @@ h1 {
 	color: #057;
 }
 
-#content h2  {
+#content h2 {
 	transition: color 0.2s linear;
 	background-color: rgba(0,85,119,0.8);
 	padding: 5px;
+	color: white;
+}
+
+#content h2 a {
+	color: white;
 }
 
 #content h2 :hover {
 	color: #0AF;
-}
-
-h2 a {
-	color: white;
 }
 
 #wp-calendar {
@@ -326,6 +331,32 @@ li {
 
 #hidden-menu {
 	display: none;
+}
+
+#upload-zone {
+	padding: 20px;
+	background-color: rgba(255,255,255,0.4);
+}
+
+#upload-zone input,
+#upload-zone select{
+	margin-bottom: 15px;
+}
+
+#upload-zone input[type="text"] {
+	width: 50%;
+}
+
+#upload-zone textarea {
+	width: 100%;
+}
+
+#uploaded-files input[type="submit"] {
+	width: 40px;
+}
+
+#uploaded-files a {
+	margin-right: 40px;
 }
 
 @media screen and (max-width: 950px) {
